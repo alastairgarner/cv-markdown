@@ -1,0 +1,71 @@
+
+\documentclass[11pt]{twocol-cv}
+\usepackage{fancyhdr}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+ 
+\input{part_000.tex}
+\title{\name}
+ 
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Insert date
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lastupdated
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Information Section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}[t]{0.3\textwidth} 
+\vspace{0pt}
+
+\infosection{
+	\input{part_002.tex}
+}
+
+\end{minipage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Title Section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hfill
+\begin{minipage}[t]{0.64\textwidth} 
+
+\vspace{0pt}
+\namesection{\name}
+
+\input{part_001.tex}
+
+\end{minipage}
+
+\vspace{-\baselineskip}
+\vspace{5pt}
+\par\rule{0.97\textwidth}{0.4pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Left Panel
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}[t]{0.3\textwidth}
+\ % Required to make titlespacing work within a minipage
+\vspace{-\baselineskip}
+
+\input{part_003.tex}
+
+\end{minipage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Right Panel
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hfill
+\begin{minipage}[t]{0.64\textwidth}
+\ % Required to make titlespacing work within a minipage
+\vspace{-\baselineskip}
+
+\input{part_004.tex}
+
+\end{minipage}
+
+
+\end{document}

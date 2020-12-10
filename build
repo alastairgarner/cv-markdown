@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+CWD=$(pwd)
+# INPUT=${2:-template.md}
+# OUTPUT=${1:-template}
+FILENAME=${1:-template.md}
+DIRNAME=${FILENAME%.*}
+
+rm -r ./$DIRNAME
+mkdir $DIRNAME
+
+cp ./$FILENAME ./$DIRNAME/$FILENAME
+cp ./twocol-cv.tex ./$DIRNAME/twocol-cv.tex
+cp ./twocol-cv.cls ./$DIRNAME/twocol-cv.cls
+
+cd $DIRNAME
+
+python ../markdown_to_latex.py
+
+xelatex twocol-cv.tex
+mv twocol-cv.pdf cv-AlastairGarner.pdf
+
+rm part* *.out *.log *.aux
+
+cd $CWD
