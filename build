@@ -1,24 +1,31 @@
 #!/usr/bin/env bash
 
 CWD=$(pwd)
-# INPUT=${2:-template.md}
-# OUTPUT=${1:-template}
+
 FILENAME=${1:-template.md}
 DIRNAME=${FILENAME%.*}
 
-rm -r ./$DIRNAME
-mkdir $DIRNAME
+# If directory does not exist, make it
+if [ ! -d "$DIRNAME" ]; then
+    rm -r ./$DIRNAME
+    mkdir $DIRNAME
+fi
 
+# Copy tex and markdown files to directory
 cp ./$FILENAME ./$DIRNAME/$FILENAME
 cp ./twocol-cv.tex ./$DIRNAME/twocol-cv.tex
 cp ./twocol-cv.cls ./$DIRNAME/twocol-cv.cls
+cp ./cover-letter.tex ./$DIRNAME/cover-letter.tex
 
 cd $DIRNAME
 
 python ../markdown_to_latex.py
 
 xelatex twocol-cv.tex
+xelatex cover-letter.tex
+
 mv twocol-cv.pdf cv-AlastairGarner.pdf
+mv cover-letter.pdf cover-AlastairGarner.pdf
 
 rm part* *.out *.log *.aux
 

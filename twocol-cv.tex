@@ -1,13 +1,13 @@
 
-\documentclass[11pt]{twocol-cv}
+\documentclass[11pt, a4paper]{twocol-cv}
+
 \usepackage{fancyhdr}
- 
 \pagestyle{fancy}
 \fancyhf{}
- 
+
 \input{part_000.tex}
-\title{\name}
- 
+\title{\authorname}
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -19,11 +19,12 @@
 %% Information Section
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{minipage}[t]{0.3\textwidth} 
+\begin{minipage}[t]{0.32\textwidth}
 \vspace{0pt}
 
 \infosection{
-	\input{part_002.tex}
+	% \input{part_001.tex}
+	\infocv
 }
 
 \end{minipage}
@@ -31,28 +32,29 @@
 %% Title Section
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hfill
-\begin{minipage}[t]{0.64\textwidth} 
+\begin{minipage}[t]{0.64\textwidth}
 
 \vspace{0pt}
-\namesection{\name}
+\namesection{\authorname}
 
 \input{part_001.tex}
 
 \end{minipage}
 
-\vspace{-\baselineskip}
+% \vspace{-\baselineskip}
 \vspace{5pt}
-\par\rule{0.97\textwidth}{0.4pt}
+\par
+\textcolor{font_light}{\rule{0.97\textwidth}{0.4pt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Left Panel
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{minipage}[t]{0.3\textwidth}
+\begin{minipage}[t]{0.32\textwidth}
 \ % Required to make titlespacing work within a minipage
 \vspace{-\baselineskip}
 
-\input{part_003.tex}
+\input{part_002.tex}
 
 \end{minipage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -63,7 +65,7 @@
 \ % Required to make titlespacing work within a minipage
 \vspace{-\baselineskip}
 
-\input{part_004.tex}
+\input{part_003.tex}
 
 \end{minipage}
 

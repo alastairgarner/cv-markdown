@@ -1,0 +1,134 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Preamble
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Set up document
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+
+%%% Import packages
+\usepackage[hmargin=1.25in, vmargin=0.5in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage[document]{ragged2e}
+\usepackage{enumitem}
+
+\usepackage{lipsum}
+% \usepackage{indentfirst}
+
+% Define 'tightlist' - required for pandoc
+\providecommand{\tightlist}
+	{
+		\setlength{\itemsep}{0pt}
+		\setlength{\parskip}{0pt}
+	}
+
+%%% Import author name
+\input{part_000.tex}
+\title{\authorname}
+
+%%% Set colours
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{date}{HTML}{666666} 
+\definecolor{font_dark}{HTML}{151515}
+\definecolor{font_medium}{HTML}{333333}
+\definecolor{font_light}{HTML}{6A6A6A}
+\definecolor{font_accent}{HTML}{2F6CA5} % Teal
+
+%%% Load fonts
+\usepackage{fontspec}
+\renewcommand{\familydefault}{\sfdefault}
+
+\setsansfont[
+		Color = font_medium, 
+		Path = ../fonts/avenir-next/,
+		BoldItalicFont = AvenirNext-MediumItalic,
+		BoldFont = AvenirNext-Medium,
+		ItalicFont = AvenirNext-Italic
+	]
+    {AvenirNext-Regular}
+    
+\setromanfont[
+		Path = ../fonts/georgia/,
+		BoldItalicFont = Georgia Bold Italic,
+		BoldFont = Georgia Bold,
+		ItalicFont = Georgia Italic
+	]
+	{Georgia}
+
+%%% Define Font Awesome
+\newfontfamily{\FAS}[Path = ../fonts/fontawesome/]{Font Awesome 5 Free-Solid-900}
+\newfontfamily{\FAB}[Path = ../fonts/fontawesome/]{Font Awesome 5 Brands-Regular-400}
+
+\def\faLinkedinSquare{{\FAB \symbol{"F08C}\enspace}} % Linkedin
+\def\faEnvelope{{\FAS \symbol{"F0E0}\enspace}} % Linkedin
+\def\faPhoneSquare{{\FAS \symbol{"F87B}\enspace}} % Linkedin
+\def\faGithub{{\FAB \symbol{"F09B}\enspace}} % Linkedin
+\def\faHome{{\FAS \symbol{"F015}\enspace}} % Linkedin
+\def\faWebsite{{\FAS \symbol{"F0AC}\enspace}} % Linkedin
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define Environments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Name section
+\newcommand{\namesection}[1]{
+    \color{font_medium}
+    \fontsize{32pt}{32pt}
+    \fontspec[Path = ../fonts/avenir-next/]{AvenirNext-Regular}\selectfont
+    \addfontfeature{LetterSpace=10.0}
+    {#1}
+}
+
+%%% Info section
+\newcommand{\infosection}[1]{
+    \begin{center}
+        \vspace{-\baselineskip}
+        \color{font_light}
+        \addfontfeature{Color=font_light} % Colours the text
+        {#1}
+    \end{center}
+}
+
+%%% Date header
+\usepackage[absolute]{textpos}
+\usepackage[UKenglish]{isodate}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+\newcommand{\lastupdated}
+    {\begin{textblock}{50}(155,5)
+    \raggedleft
+	\fontsize{8pt}{8pt}\selectfont
+    \addfontfeature{Color=date}{\today}
+    \end{textblock}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document Starts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\lastupdated
+
+\begin{center}
+    \namesection{\authorname}
+\end{center}
+
+\vspace{-\baselineskip}
+
+\par\noindent
+\textcolor{font_accent}{\rule[5pt]{\textwidth}{0.4pt}}
+
+\infosection{\infocover}
+
+\
+
+\raggedright
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{12pt}
+
+% \color{font_dark}
+% \addfontfeature{Color=font_medium}
+\noindent
+\input{part_004.tex}
+
+\end{document}
